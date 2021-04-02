@@ -1,0 +1,57 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String MESSAGE = in.nextLine();
+        String binaryString = "";
+        String chuck = "";
+        int prev = 2;
+        for (int i = 0; i < MESSAGE.length(); i++) {
+            char lettre = MESSAGE.charAt(i);
+            int monAsci = (new Character(lettre)).hashCode();
+            binaryString = String.format("%7s", Integer.toBinaryString(monAsci)).replace(' ', '0');
+
+            for (int j = 0; j < binaryString.length(); j++){
+                char a = binaryString.charAt(j);
+                if (a != prev){
+
+                    if (a == 49){
+                        if (prev == 2){
+                            chuck = chuck + "0 0";
+                        }
+                        else {
+                        chuck = chuck + " 0 0";
+                        }
+                        }
+
+                    else if (a == 48){
+                        if (prev == 2){
+                            chuck = chuck + "00 0";
+                        }
+                        else {
+                        chuck = chuck + " 00 0";
+                        }
+                        }
+                        
+                    prev = a;
+                }
+                else {
+                    chuck = chuck + "0";
+                }
+
+        // Write an answer using System.out.println()
+        // To debug: System.err.println("Debug messages...");
+
+}
+}
+        System.out.print(chuck);
+    }
+}

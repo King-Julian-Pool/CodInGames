@@ -1,0 +1,58 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        
+        int result = 0; // température la plus proche de 0
+        int tempabs = 0; // valeur absolue de la température t
+        int resultabs = 5526; // valeur absolue de la température la plus proche de 0
+
+        int n = in.nextInt(); // the number of temperatures to analyse
+        if (n > 0) {
+            result = 5526; // si aucune température n'est fournie, la valeur à afficher reste 0
+        }
+        
+        for (int i = 0; i < n; i++) {
+            int t = in.nextInt(); // a temperature expressed as an integer ranging from -273 to 5526
+        
+        
+            if (t < 0){
+                tempabs = -t;
+            }
+            else {
+                tempabs = t;
+            }
+            if (t < 0 ); if (tempabs == resultabs){
+                if (t<result || t>result){
+                    result = resultabs;
+                }
+                else {
+                    result = t;
+                }
+            }
+            else if (tempabs < resultabs){
+                result = t; 
+                if (result < 0){
+                resultabs = -t;
+                }
+                else {
+                resultabs = t;
+                }
+            }                 
+        }
+
+        // Write an answer using System.out.println()
+        // To debug: System.err.println("Debug messages...");
+
+        System.out.println(result);
+    }
+    
+}
